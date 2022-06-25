@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travel application </title>
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+
+<body>
+    <img class="active background" src="./image/warsaw-823079_1920.jpg" alt="Warsaw">
+    <img class="background" src="./image/travel-3136679_1920.jpg" alt="Hamburg">
+    <img class="background" src="./image/city-4820579_1920.jpg" alt="Lisbon">
+    <div id="root">
+    </div>
+    <script>
+        function imageAnimate(){
+            const activeImage = document.getElementsByClassName("active")[0];
+            activeImage.classList.remove("active");
+            if(activeImage.nextElementSibling.id==="root"){
+                document.getElementsByClassName("background")[0].classList.add("active");
+            }else{
+                console.log(activeImage.nextElementSibling.classList.DOMTokenList);
+                activeImage.nextElementSibling.classList.add("active");
+            }
+        }
+        setInterval(imageAnimate,4000);
+    </script>
+</body>
+
+</html>

@@ -5,7 +5,6 @@ import  App  from "./App";
 
 import './style/tailwind.css';
 import './style/style.css';
-
 const rootElement =document.getElementById("root");
 const root = createRoot(rootElement!);
 
