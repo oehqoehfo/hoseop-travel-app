@@ -1,4 +1,5 @@
 import React, { SyntheticEvent,useRef } from "react";
+//main application
  const App=()=>{
     return (
     <section id="App">

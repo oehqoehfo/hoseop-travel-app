@@ -9,12 +9,18 @@
 </head>
 
 <body>
+    <!--
+        Fadein, fadeout background animation
+        part of HTML that does not have any interactivity with user
+        that's why it is directly inside html file.
+    -->
     <img class="active background" src="./image/warsaw-823079_1920.jpg" alt="Warsaw">
     <img class="background" src="./image/travel-3136679_1920.jpg" alt="Hamburg">
     <img class="background" src="./image/city-4820579_1920.jpg" alt="Lisbon">
     <div id="root">
     </div>
     <script>
+        //code for background fadein fadeout animation
         function imageAnimate(){
             const activeImage = document.getElementsByClassName("active")[0];
             activeImage.classList.remove("active");
