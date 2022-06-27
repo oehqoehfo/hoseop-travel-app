@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nobile&display=swap');
 *{
     box-sizing:border-box;
 }
 body, html{
     margin:0;
     padding:0;
+}
+body{
+    font-family: 'Nobile', sans-serif;
 }
 img.background{
     position:absolute;
@@ -17,4 +21,8 @@ img.background{
 }
 img.active{
     opacity:1;
+}
+#root{
+    width:100vw;
+    height:100%;
 }
