@@ -21,7 +21,18 @@ const SearchPanel=()=>{
         }else{
             regexValidate(searchValue)
             ?alert("No special characters are allowed")
-            :alert("good!")
+            :fetch("//localhost:3000/test",{
+                method:'GET',
+                credentials:'include',
+                headers:{
+                    'Accept':'application/json',
+                    'Content-Type':'application/json'
+                }
+            }).then((data:any)=>{
+                return data.json();
+            }).then(data=>{
+                console.log(data);
+            })
         }
         e.preventDefault();
     }
