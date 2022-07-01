@@ -1,9 +1,13 @@
-import React, { SyntheticEvent,useRef } from "react";
+import React, { SyntheticEvent,useRef,useState } from "react";
 //main application
- const App=()=>{
+ const App:React.FC=()=>{
+    const [searchResult,setSearchResultState]=useState<Object>(0);
+    const setSearchResultFunc = (value:Object)=>{
+        setSearchResultState(value);
+    }
     return (
     <section id="App">
-        <SearchPanel/>
+        <SearchPanel setResult={setSearchResultFunc}/>
         <footer>
 
         </footer>
@@ -12,7 +16,10 @@ import React, { SyntheticEvent,useRef } from "react";
 }
 export default App;
 
-const SearchPanel=()=>{
+type searchProps={
+    setResult(value:Object):void
+}
+const SearchPanel=({setResult}:{setResult:searchProps})=>{
     const searchElementRef = useRef(null as any);
     const search =(e:SyntheticEvent)=>{
         const searchValue = searchElementRef.current.value;
@@ -21,7 +28,7 @@ const SearchPanel=()=>{
         }else{
             regexValidate(searchValue)
             ?alert("No special characters are allowed")
-            :fetch("//localhost:3000/test",{
+            :fetch("//localhost:3000/city?name="+searchValue,{
                 method:'GET',
                 credentials:'include',
                 headers:{
@@ -32,6 +39,7 @@ const SearchPanel=()=>{
                 return data.json();
             }).then(data=>{
                 console.log(data);
+                setResult(data);
             })
         }
         e.preventDefault();
