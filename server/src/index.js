@@ -34,7 +34,7 @@ app.get('/city',(req,res)=>{
       resArray[i]=Object.assign({},placeObject);
     }
     //res.send(JSON.parse(resObject));
-    console.log(resArray);
+    console.log(resArray.length);
     res.send(resArray);
   })//.pipe(resObject);
 });
