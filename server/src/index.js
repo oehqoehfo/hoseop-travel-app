@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 const cors =require('cors');
 const request = require('request');
+const words = require('./words');
 require('dotenv').config();
 const apiKey = process.env.google_place_api_key;
 app.use(cors({
@@ -29,7 +30,7 @@ app.get('/city',(req,res)=>{
       photo:''
     }
     for(let i=0;i<object.results.length;i++){
-      placeObject['placeName']=object.results[i].name;
+      placeObject['placeName']=words.returnWordsInEnglish(object.results[i].name);
       placeObject['photo'] =object.results[i].photos[0]['photo_reference'];
       
       //getImageOfPlace(photo);
