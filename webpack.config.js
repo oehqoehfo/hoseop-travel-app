@@ -2,7 +2,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const path = require("path");
 const webpack = require("webpack");
-
+const dotenv = require("dotenv");
+dotenv.config();
 const isDevelopment = process.env.NODE_ENV !== "production";
 module.exports = {
     mode: isDevelopment ? "development" : "production",
@@ -21,6 +22,9 @@ module.exports = {
       }),
       isDevelopment && new webpack.HotModuleReplacementPlugin(),
       isDevelopment && new ReactRefreshWebpackPlugin(),
+      new webpack.DefinePlugin({
+        "process.env":JSON.stringify(process.env)
+      })
     ],
     resolve: {
       modules: [__dirname, "src", "node_modules"],

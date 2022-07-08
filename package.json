@@ -7,12 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve  --hot --open",
     "build": "webpack --config webpack.config.js --mode development",
-    "server":"cd server && npm start"
+    "server": "cd server && npm start"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "postcss-loader": "^7.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

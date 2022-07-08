@@ -14,7 +14,6 @@ app.get('/', (req, res) => {
 });
 app.get('/city',(req,res)=>{
   const cityname = req.query.name;
-  console.log(apiKey);
   let resArray=[];
   request({
     uri:'https://maps.googleapis.com/maps/api/place/textsearch/json',
@@ -24,25 +23,32 @@ app.get('/city',(req,res)=>{
     }
   },(err,request,body)=>{
     const object = JSON.parse(body);
-    console.log("length "+object.results.length);
+    let photo;
     let placeObject={
-      placeName:''
+      placeName:'',
+      photo:''
     }
     for(let i=0;i<object.results.length;i++){
       placeObject['placeName']=object.results[i].name;
-      console.log(placeObject);
+      placeObject['photo'] =object.results[i].photos[0]['photo_reference'];
+      
+      //getImageOfPlace(photo);
       resArray[i]=Object.assign({},placeObject);
     }
-    //res.send(JSON.parse(resObject));
-    console.log(resArray.length);
     res.send(resArray);
-  })//.pipe(resObject);
-});
-app.get('/test',(req,res)=>{
-  console.log("test test");
-  res.send("test test");
+  });
 });
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}!`)
 });
+
+async function getImageOfPlace(place){
+  try{
+    const response = await fetch('https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference='+place+'&key='+apiKey);
+    //const json = await response.json();
+    console.log(response);
+  }catch(e){
+    console.log(e);
+  }
+}
