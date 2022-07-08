@@ -30,12 +30,16 @@ app.get('/city',(req,res)=>{
       photo:''
     }
     for(let i=0;i<object.results.length;i++){
-      placeObject['placeName']=words.returnWordsInEnglish(object.results[i].name);
-      placeObject['photo'] =object.results[i].photos[0]['photo_reference'];
+      if(object.results[i].photos!==undefined){
+        placeObject['placeName']=words.returnWordsInEnglish(object.results[i].name);
+        placeObject['photo'] =object.results[i].photos[0]['photo_reference'];
+      }
+      
       
       //getImageOfPlace(photo);
       resArray[i]=Object.assign({},placeObject);
     }
+    
     res.send(resArray);
   });
 });

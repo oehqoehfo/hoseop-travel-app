@@ -27,6 +27,15 @@ module.exports={
             case '白帝城':
                 returnWord="Baidicheng";
                 break;
+            case '퍼스트가든':
+                returnWord="First Garden";
+                break;
+            case '鞑靼清真寺':
+                returnWord="Tartar Mosque";
+                break;
+            case '여의도한강공원':
+                returnWord="Yeouido Hangang Park";
+                break;
             default:
                 returnWord=word;
         }
