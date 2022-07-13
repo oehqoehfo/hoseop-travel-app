@@ -4,27 +4,27 @@ import Result from './Result';
  const App:React.FC=()=>{
     const [searchResult,setSearchResultState]=useState<Array<Object>>([]);
     const setSearchResultFunc = (value:Array<Object>)=>{
-        console.log(value);
         setSearchResultState(value);
     }
+    
     return (
     <section id="App">
         <SearchPanel setResult={setSearchResultFunc}/>
         {
-            (searchResult===[])
+            searchResult.length===0
             ?""
             :<Result result={searchResult}/>}
-        <footer>
-            
+        <footer className={searchResult.length===0?"absolute":""}>
+        <p>All data are received using Google Place API. {"result: " +searchResult}
+        <br/>
+        This website is not actual working website and is made just for educational purpose. 
+        </p>
         </footer>
     </section>
     )
 }
 export default App;
 
-/*type searchProps={
-    setResult(value:Object):void
-}*/
 interface searchProps{
     setResult:(value: Array<Object>) => void
 }
@@ -49,7 +49,6 @@ const SearchPanel=({setResult}:searchProps)=>{
             }).then((data:any)=>{
                 return data.json();
             }).then(data=>{
-                console.log(data);
                 setResult(Object.entries(data));
             })
         }
