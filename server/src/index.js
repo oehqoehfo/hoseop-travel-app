@@ -5,14 +5,15 @@ const cors =require('cors');
 const request = require('request');
 const words = require('./words');
 require('dotenv').config();
+/*
 const apiKey = process.env.google_place_api_key;
 app.use(cors({
   origin:'http://localhost:8080',
   credentials:true
-}));
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+}));*/
+const apiKey=process.env.apiKey;
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('/city',(req,res)=>{
   const cityname = req.query.name;
   let resArray=[];

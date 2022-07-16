@@ -1,5 +1,6 @@
 import React, { SyntheticEvent,useRef,useState } from "react";
 import Result from './Result';
+const serverURL = process.env.serverURL;
 //main application
  const App:React.FC=()=>{
     const [searchResult,setSearchResultState]=useState<Array<Object>>([]);
@@ -39,7 +40,8 @@ const SearchPanel=({setResult}:searchProps)=>{
             regexValidate(searchValue)
             ?alert("No special characters are allowed")
             //send request to server if no special character is found
-            :fetch("//localhost:3000/city?name="+searchValue,{
+            //:fetch("//localhost:3000/city?name="+searchValue,{
+            :fetch(serverURL+"/city?name="+searchValue,{
                 method:'GET',
                 credentials:'include',
                 headers:{

@@ -2,7 +2,8 @@ import React from 'react';
 interface resultProps{
     result:Array<Object>
 }
-const apiKey = process.env.REACT_APP_google_api_key;
+//const apiKey = process.env.REACT_APP_google_api_key;
+const apiKey=process.env.apiKey;
 const Result=({result}:resultProps)=>{
     return(
         <div id="Result" className="flex w-100 justify-around">
@@ -13,7 +14,7 @@ const Result=({result}:resultProps)=>{
                     return (
                         <div key={"item-"+item+index} className="item w-1/4 text-center text-white">
                             <div>
-                                {/*<img src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference="+item[1]['photo']+"&key="+apiKey}/>*/}
+                                {<img src={"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photo_reference="+item[1]['photo']+"&key="+apiKey}/>}
                             </div>    
                             <div>
                                 <p>{item[1]['placeName']}</p>
