@@ -9,6 +9,9 @@
     "build": "webpack --config webpack.config.js --mode development",
     "server": "cd server && npm start"
   },
+  "engines": {
+    "node": "18.4.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
