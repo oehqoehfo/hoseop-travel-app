@@ -13,7 +13,7 @@ app.use(cors({
 }));*/
 const apiKey=process.env.apiKey;
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'dist/build')));
 app.get('/city',(req,res)=>{
   const cityname = req.query.name;
   let resArray=[];
