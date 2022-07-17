@@ -19,10 +19,10 @@ This application is a travel web application made with JavaScript. Users can sub
 ### Frontend JavaScript
 `/src`
 #### App.tsx
-Main Reactjs File made with TypeScript. Calls main component declared inside index.tsx and renders it.  
+A ReactJS file that contains main component. When user visits the page, user will see this component. 
 
 #### index.tsx
-A ReactJS file that contains main component. When user visits the page, user will see this component. 
+Main Reactjs File made with TypeScript. Calls main component declared inside App.tsx and renders it.  
 
 #### Result.tsx
 A ReactJS file that will be rendered when user performs search action. In this file users will se data returned from API server. 
