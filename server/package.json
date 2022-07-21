@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build":"",
-    "start": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
     "heroku-postbuild":"cd ..& npm run build"
   },
   "engines": {
