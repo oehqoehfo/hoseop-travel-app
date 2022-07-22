@@ -5,6 +5,7 @@ const cors =require('cors');
 const request = require('request');
 const words = require('./words');
 require('dotenv').config();
+const path = require('path');
 /*
 const apiKey = process.env.google_place_api_key;
 app.use(cors({
